@@ -1,0 +1,1 @@
+return [list(c) for i in range(len(s)+1) for c in itertools.combinations(s, i)]
