@@ -1,0 +1,63 @@
+#include <vector>
+#include <list>
+#include <map>
+#include <set>
+#include <deque>
+#include <stack>
+#include <bitset>
+#include <algorithm>
+#include <functional>
+#include <numeric>
+#include <utility>
+#include <sstream>
+#include <iostream>
+#include <iomanip>
+#include <cstdio>
+#include <cmath>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+#define ALL(x) (x).begin(),(x).end()
+
+const string win = "WIN", lose = "LOSE";
+
+class SplitStoneGame {
+public:
+   string winOrLose(vector <int>);
+};
+
+
+int n;
+vector<int> v;
+bool f(int i){
+   if(i >= n-2) return true;
+   bool sw = true;
+   if(v[i] > 1 && i < n-2){
+         v[i] = 0;
+         int j = i+1, k = i+2;
+         for(int xx = 1 ; xx <= v[i]/2 ; xx++){
+         int l = xx; int r = v[i] - xx;;
+            v[j] += l;
+          v[k] += r;
+          sw &= f(i+1);
+          v[j] -= l;
+          v[k] -= r;
+          v[i] = l+r;   
+         }
+   }
+   return !sw;
+}
+
+string SplitStoneGame::winOrLose(vector <int> number) {
+   v = number;
+   n = number.size();
+   if( n < 2 ) { return lose; }
+   sort(ALL(number),[](int x,int y){return x > y;});
+   bool sw = f(0);
+   return sw ? win : lose;
+}
+
+<%:testing-code%>
+//Powered by [KawigiEdit] 2.0!

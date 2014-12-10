@@ -1,0 +1,40 @@
+#include <vector>
+#include <list>
+#include <map>
+#include <set>
+#include <deque>
+#include <stack>
+#include <bitset>
+#include <algorithm>
+#include <functional>
+#include <numeric>
+#include <utility>
+#include <sstream>
+#include <iostream>
+#include <iomanip>
+#include <cstdio>
+#include <cmath>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+#define ALL(x) (x).begin(),(x).end()
+#define SZ(x) (x).size()
+#define PB push_back
+
+const int INF = 1000000000;
+const int MOD = INF + 7;
+
+class <%:class-name%> {
+public:
+	<%:return-type%> <%:method-name%>(<%:param-type-list%>);
+};
+
+<%:return-type%> <%:class-name%>::<%:method-name%>(<%:param-list%>) {
+	<%:set-caret%>
+}
+
+<%:testing-code%>
+//Powered by [KawigiEdit] 2.0!
+
